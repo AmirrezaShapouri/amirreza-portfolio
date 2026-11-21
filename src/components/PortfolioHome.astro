@@ -91,6 +91,12 @@ const projects = fa ? [
     <div class="flex items-center gap-3">
       <a class="language-switch" href={fa ? "/en/" : "/fa/"} lang={fa ? "en" : "fa"}>{fa ? "EN" : "FA"}</a>
       <a class="header-cta hidden sm:inline-flex" href="#contact">{fa ? "شروع گفتگو" : "Let's talk"} <span>↗</span></a>
+      <details class="mobile-nav md:hidden">
+        <summary aria-label={fa ? "باز کردن منو" : "Open menu"}><span></span><span></span></summary>
+        <nav aria-label={fa ? "ناوبری موبایل" : "Mobile navigation"}>
+          <a href="#projects">{copy.projects}</a><a href="#skills">{copy.skills}</a><a href="#about">{copy.about}</a><a href="#contact">{fa ? "ارتباط" : "Contact"}</a>
+        </nav>
+      </details>
     </div>
   </header>
 
@@ -174,7 +180,7 @@ const projects = fa ? [
   </section>
 
   <section id="contact" class="contact-section mx-auto max-w-7xl scroll-mt-20 px-5 pb-20 sm:px-8">
-    <div class="contact-panel"><div class="contact-orb"></div><div class="relative z-10"><p class="section-kicker">06 / CONTACT</p><h2>{copy.contact}</h2><p>{copy.contactText}</p><div class="mt-8 flex flex-wrap gap-3"><a class="button-primary" href="https://github.com/AmirrezaShapouri" target="_blank" rel="noreferrer">{copy.github}<span>↗</span></a><a class="button-secondary" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn ↗</a></div></div><div class="contact-decoration" aria-hidden="true">AS<span>.</span></div></div>
+    <div class="contact-panel"><div class="contact-orb"></div><div class="relative z-10"><p class="section-kicker">06 / CONTACT</p><h2>{copy.contact}</h2><p>{copy.contactText}</p><div class="mt-8 flex flex-wrap gap-3"><a class="button-primary" href="https://github.com/AmirrezaShapouri" target="_blank" rel="noreferrer">{copy.github}<span>↗</span></a><span class="contact-note">{fa ? "راه‌های ارتباطی بیشتر به‌زودی اضافه می‌شوند." : "Additional contact details coming soon."}</span></div></div><div class="contact-decoration" aria-hidden="true">AS<span>.</span></div></div>
   </section>
 
   <footer class="site-footer mx-auto flex max-w-7xl flex-col gap-4 px-5 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8"><a href={fa ? "/fa/" : "/en/"} class="footer-brand">Amirreza Shapouri<span>.</span></a><span>© {new Date().getFullYear()} {fa ? "تمامی حقوق محفوظ است." : "All rights reserved."}</span><span>{fa ? "ساخته‌شده با دقت و هدف" : "Designed with intent. Built with purpose."}</span></footer>
