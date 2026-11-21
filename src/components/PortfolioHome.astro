@@ -70,11 +70,11 @@ const copy = fa ? {
   ]
 };
 const projects = fa ? [
-  { number: "01", type: "WEB DEVELOPMENT", name: "ElvoWood", status: copy.live, title: "کاتالوگ دیجیتال محصولات چوبی", body: "وب‌سایتی برای معرفی محصولات و نمایش ساختارمند کاتالوگ یک برند مبلمان چوبی؛ با تمرکز بر ارائه ساده و منظم محتوا.", tags: ["Django", "Python", "PostgreSQL"], href: "https://elvowood.ir/", action: copy.view, visual: "wood" },
-  { number: "02", type: "SAAS PLATFORM", name: "Gym Management SaaS", status: copy.inProgress, title: "سامانه مدیریت باشگاه‌های ورزشی", body: "پلتفرمی چندباشگاهی برای مدیریت اعضا، پلن‌ها و اشتراک‌ها، حضور و غیاب، کارکنان و امور مالی. پروژه همچنان در حال توسعه است.", tags: ["Django", "PostgreSQL", "SaaS"], href: "", action: "مطالعه موردی به‌زودی", visual: "dashboard" }
+  { number: "01", type: "WEB DEVELOPMENT", name: "ElvoWood", status: copy.live, title: "کاتالوگ دیجیتال محصولات چوبی", body: "وب‌سایتی برای معرفی محصولات و نمایش ساختارمند کاتالوگ یک برند مبلمان چوبی؛ با تمرکز بر ارائه ساده و منظم محتوا.", tags: ["Django", "Python", "PostgreSQL"], highlights: fa ? ["کاتالوگ محصولات", "صفحه اختصاصی محصول", "طراحی واکنش‌گرا"] : ["Product catalog", "Product detail pages", "Responsive layout"], href: "https://elvowood.ir/", action: copy.view, visual: "wood" },
+  { number: "02", type: "SAAS PLATFORM", name: "Gym Management SaaS", status: copy.inProgress, title: "سامانه مدیریت باشگاه‌های ورزشی", body: "پلتفرمی چندباشگاهی برای مدیریت اعضا، پلن‌ها و اشتراک‌ها، حضور و غیاب، کارکنان و امور مالی. پروژه همچنان در حال توسعه است.", tags: ["Django", "PostgreSQL", "SaaS"], highlights: ["مدیریت اعضا و اشتراک‌ها", "حضور و غیاب", "مدیریت مالی"], href: "", action: "مطالعه موردی به‌زودی", visual: "dashboard" }
 ] : [
-  { number: "01", type: "WEB DEVELOPMENT", name: "ElvoWood", status: copy.live, title: "A digital catalog for a furniture brand", body: "A website built to present products and organize a wooden furniture brand's catalog, with a focus on clear and structured content.", tags: ["Django", "Python", "PostgreSQL"], href: "https://elvowood.ir/", action: copy.view, visual: "wood" },
-  { number: "02", type: "SAAS PLATFORM", name: "Gym Management SaaS", status: copy.inProgress, title: "A multi-gym management platform", body: "A multi-tenant platform for members, plans and subscriptions, attendance, staff, and financial workflows. The product is actively in development.", tags: ["Django", "PostgreSQL", "SaaS"], href: "", action: "Case study coming soon", visual: "dashboard" }
+  { number: "01", type: "WEB DEVELOPMENT", name: "ElvoWood", status: copy.live, title: "A digital catalog for a furniture brand", body: "A website built to present products and organize a wooden furniture brand's catalog, with a focus on clear and structured content.", tags: ["Django", "Python", "PostgreSQL"], highlights: ["Product catalog", "Product detail pages", "Responsive layout"], href: "https://elvowood.ir/", action: copy.view, visual: "wood" },
+  { number: "02", type: "SAAS PLATFORM", name: "Gym Management SaaS", status: copy.inProgress, title: "A multi-gym management platform", body: "A multi-tenant platform for members, plans and subscriptions, attendance, staff, and financial workflows. The product is actively in development.", tags: ["Django", "PostgreSQL", "SaaS"], highlights: ["Member & subscription management", "Attendance tracking", "Financial workflows"], href: "", action: "Case study coming soon", visual: "dashboard" }
 ];
 ---
 <main class="site-shell relative overflow-hidden">
@@ -113,6 +113,7 @@ const projects = fa ? [
       <div class="hero-meta">
         <span><i></i> Python & Django</span><span><i></i> Product-minded</span><span><i></i> Always learning</span>
       </div>
+      <div class="hero-focus"><span class="focus-label">{fa ? "تمرکز فعلی" : "CURRENT FOCUS"}</span><span>{fa ? "مهندسی بک‌اند" : "Backend engineering"}</span><b>·</b><span>{fa ? "محصولات SaaS" : "SaaS products"}</span><b>·</b><span>{fa ? "طراحی سیستم" : "System design"}</span></div>
     </div>
     <div class="hero-art" aria-label="Code-inspired visual">
       <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
@@ -151,6 +152,7 @@ const projects = fa ? [
           <div class="project-status"><span class:list={["status-pill", project.visual === "wood" ? "status-live" : "status-progress"]}>{project.status}</span><span class="project-type">{project.type}</span></div>
           <h3>{project.name}</h3><h4>{project.title}</h4><p>{project.body}</p>
           <div class="tag-list">{project.tags.map(tag => <span>{tag}</span>)}</div>
+          <ul class="project-highlights">{project.highlights.map(item => <li><span>↗</span>{item}</li>)}</ul>
           {project.href ? <a class="text-link" href={project.href} target="_blank" rel="noreferrer">{project.action}<span>↗</span></a> : <span class="coming-soon">{project.action}</span>}
         </div>
       </article>)}
